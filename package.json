@@ -1,6 +1,6 @@
 {
-  "name": "qlik-angular-fka",
-  "description": "Qlik Sense Mashup Template",
+  "name": "qlik-lars",
+  "description": "Less, Angular, Require, Sense Template",
   "version": "0.0.1",
   "dependencies": {
     "grunt": "*",
