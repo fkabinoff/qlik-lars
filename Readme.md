@@ -1,4 +1,4 @@
-# Qlik Sense 3.0 Less Angular Require.js Starter Template
+# Less Angular Require Sense Template
 
 This is a Qlik Sense mashup template that uses Less, Angular.js, Require.js.
 
