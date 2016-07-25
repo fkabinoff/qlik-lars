@@ -1,6 +1,6 @@
-# Qlik Sense 3.0 Mashup Template
+# Qlik Sense 3.0 Lars Template
 
-This is a Qlik Sense mashup template that uses Angular.js, Require.js, Grunt, and Less.
+This is a Qlik Sense mashup template that uses Less, Angular.js, Require.js.
 
 ## Features
 
