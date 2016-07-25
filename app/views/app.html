@@ -1,0 +1,19 @@
+<div id="app-view" class="container">
+    
+    <!-- Search directive example -->
+    <div style="margin-top: 30px;">
+        <search fields="['Cases Open/Closed', 'Priority', 'Case Owner', 'Case Record Type', 'Case Owner Group']" context="CurrentSelections"></search>
+    </div>
+    
+    <!-- Dropdown filter example -->
+    <div style="margin-top: 30px;">
+        <dropdown field="Cases Open/Closed" toggle="true" width="300"></dropdown>
+        <dropdown field="Priority" toggle="true" width="300"></dropdown>
+        <dropdown field="Case Owner" name="IT Resources" toggle="true" width="300"></dropdown>
+        <dropdown field="Case Record Type" name="Request Type" toggle="true" width="300"></dropdown>
+        <dropdown field="Case Owner Group" name="Department" toggle="true" width="300"></dropdown>
+    </div>
+
+    <div id="chart1" style="margin-top: 50px; height: 400px;"></div>
+
+</div>
