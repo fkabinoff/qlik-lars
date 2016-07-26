@@ -7,7 +7,6 @@ Live demo - http://webapps.qlik.com/qlik-lars-demo/index.html
 ## Features
 
 * A few useful directives, including a search and a filter dropdown, with more planned to be added.
-* A simple pattern for addressing memory management, destroying session objects and sense objects on route change.
 * Gruntfile for build and watch processes, which generates Angular.js template-cache file, runs RequireJS optimizer, and compiles Less.
 
 ## Prerequisities
