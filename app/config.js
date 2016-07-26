@@ -10,7 +10,7 @@ define([], function() {
 			controller: 'appController'
 		})
 	}
-    config.$inject=['$routeProvider', '$locationProvider'];
+	config.$inject=['$routeProvider', '$locationProvider'];
 
-  	return config;
+	return config;
 });
