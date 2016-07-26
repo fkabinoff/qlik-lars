@@ -5,7 +5,7 @@ This is a Qlik Sense mashup template that uses Less, Angular.js, Require.js.
 Live demo - http://webapps.qlik.com/qlik-lars-demo/index.html
 
 ## Features
-
+* UI Bootstrap
 * A few useful directives, including a search and a filter dropdown, with more planned to be added.
 * Gruntfile for build and watch processes, which generates Angular.js template-cache file, runs RequireJS optimizer, and compiles Less.
 
