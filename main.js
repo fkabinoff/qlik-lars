@@ -19,7 +19,7 @@ require.config({
 	'baseUrl': (config.isSecure ? "https://" : "http://" ) + config.host + (config.port ? ":" + config.port : "" ) + config.prefix + "resources"
 });
 
-require( ["js/qlik", "app/app.js"], function (qlik, app){
+require( ["js/qlik", "app-build.js"], function (qlik, app){
 	
 	qlik.setOnError( function (error){
 		alert(error.message);
