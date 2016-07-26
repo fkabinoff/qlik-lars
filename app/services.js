@@ -4,7 +4,8 @@ define([], function() {
 
     services.qlikAppService = function($rootScope) {
         //opens Qlik Sense app with appId and config set in main.js
-		this.app = qlik.openApp(appId, config);
+		var app = qlik.openApp(appId, config);
+		this.app = app;
 
         // arrays of current session objects and sense objects
         var sessionObjects = [];
