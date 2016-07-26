@@ -9,7 +9,7 @@ define([], function() {
 	directives.senseObjectDirective = function(qlikApp) {
 		return {
 			restrict: "E",
-			template:"<div></div>",
+			template:"<div class='sense-object'></div>",
 			controller: ['$scope', '$attrs', '$element', 'qlikApp', function($scope, $attrs, $element, qlikApp) {
 				var height = $attrs.height ? $attrs.height + "px" : "300px";
 				$element.find("div").css("height", height);
