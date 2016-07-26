@@ -1,5 +1,33 @@
 define([], function() { 
-    var directives = {};
+    
+	var directives = {};
+
+
+	/*
+	* Qlik Sense object
+	*/
+	directives.senseObjectDirective = function(qlikApp) {
+		return {
+			restrict: "E",
+			template:"<div></div>",
+			controller: ['$scope', '$attrs', '$element', 'qlikApp', function($scope, $attrs, $element, qlikApp) {
+				var height = $attrs.height ? $attrs.height + "px" : "300px";
+				$element.find("div").css("height", height);
+				
+				qlikApp.app.getObject($element.find("div")[0], $attrs.id).then(function(model) {
+					$scope.model = model;
+				});
+
+				//closes object on scope change
+				$scope.$on('$destroy', function() {
+					$scope.model.close();
+				});
+
+			}]
+		}
+	}
+	directives.senseObjectDirective.$inject = ['qlikApp'];
+
 
 	/*
 	*	Search bar that returns results from app in dropdown, and can be selected.
@@ -83,7 +111,12 @@ define([], function() {
 				}, function(reply) {
 					$scope.rows = _.flatten(reply.qListObject.qDataPages[0].qMatrix).filter(function(row) { return row.qText !== "Toronto Blue Jays"; });
 				}).then(function(model) {
-					qlikApp.addSessionObject(model); // add session object to objects to be destroyed on route change
+					$scope.model = model;
+				});
+
+				//destroys list object on scope change
+				$scope.$on('$destroy', function() {
+					qlikApp.app.destroySessionObject($scope.model.id);
 				});
 
 				// handles selections, if 'toggle' attribute set to true, then toggles selections

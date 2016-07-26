@@ -5,6 +5,7 @@ require(['app/config.js', 'app/templates.js', 'app/services.js', 'app/directives
     app.run(templates);
     
     app.service('qlikApp', services.qlikAppService);
+    app.directive('senseObject', directives.senseObjectDirective);
     app.directive('search', directives.searchDirective);
     app.directive('dropdown', directives.dropdownDirective);
     app.controller('appController', controllers.appController);
