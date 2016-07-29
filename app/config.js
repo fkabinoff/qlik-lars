@@ -1,5 +1,5 @@
 define([], function() { 
-    
+	
 	function config($routeProvider, $locationProvider) {
 		$routeProvider.when('/', {
 			templateUrl: 'app/views/app.html',

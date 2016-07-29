@@ -1,7 +1,6 @@
 define([], function() { 
-    
+	
 	var directives = {};
-
 
 	/*
 	* Qlik Sense object
@@ -28,11 +27,10 @@ define([], function() {
 	}
 	directives.senseObjectDirective.$inject = ['qlikApp'];
 
-
 	/*
 	*	Search bar that returns results from app in dropdown, and can be selected.
 	*/
-    directives.searchDirective = function() {
+	directives.searchDirective = function() {
 		return {
 			restrict: "E",
 			template: "<div class='search-directive'><input class='search-directive-input form-control' type='text' placeholder='Search' ng-model='selected' uib-typeahead='result.label for result in getResults($viewValue)' typeahead-loading='loadingResults' typeahead-on-select='select($item)'><i class='glyphicon glyphicon-refresh' ng-show='loadingResults'></i></div>",
@@ -66,14 +64,13 @@ define([], function() {
 
 				// handles selections
 				$scope.select = function(item) {
-                    qlikApp.app.field(item.field).toggleSelect(item.label, true);
+					qlikApp.app.field(item.field).toggleSelect(item.label, true);
 					$scope.selected = "";
 				}
 			}]
 		}
 	}
 	directives.searchDirective.$inject = [];
-
 
 	/*
 	*	Dropdown that displays list, allows selections, and allows styling of selections
@@ -95,13 +92,13 @@ define([], function() {
 					"qDef": {
 						"qFieldDefs": ["[" + $scope.field + "]"],
 						qSortCriterias: [{
-				        	qSortByAscii: 1,
+							qSortByAscii: 1,
 							qSortByNumeric: -1
-				        }]
+						}]
 					},
-            		"qAutoSortByState": {
-		                qDisplayNumberOfRows: 1
-        		    },
+					"qAutoSortByState": {
+						qDisplayNumberOfRows: 1
+					},
 					"qInitialDataFetch": [{
 						qTop : 0,
 						qLeft : 0,
@@ -132,34 +129,34 @@ define([], function() {
 				// updates value of button
 				$scope.$watchCollection('rows', function(rows) {
 					var defaultValue = $attrs.name ? $attrs.name : $attrs.field;
-                    if(rows == undefined) { 
+					if(rows == undefined) { 
 						$scope.selectedValue = defaultValue;
 						return; 
 					}
-                    $scope.selectedRows = rows.filter(function(row) { return row.qState === "S" });
-                    if ($scope.selectedRows.length === 1) {
-                        $scope.selectedValue = $scope.selectedRows[0].qText;
-                    } else if ($scope.selectedRows.length > 1) {
-                        $scope.selectedValue = defaultValue + ": " + $scope.selectedRows.length + " selected";
-                    } else {
-                        $scope.selectedValue = defaultValue;
-                    }
-                });
+					$scope.selectedRows = rows.filter(function(row) { return row.qState === "S" });
+					if ($scope.selectedRows.length === 1) {
+						$scope.selectedValue = $scope.selectedRows[0].qText;
+					} else if ($scope.selectedRows.length > 1) {
+						$scope.selectedValue = defaultValue + ": " + $scope.selectedRows.length + " selected";
+					} else {
+						$scope.selectedValue = defaultValue;
+					}
+				});
 
 				// edge detection for dropdown, so it doesn't overflow page
 				$scope.edgeDetection = function($event) {
-                    var $button = $(event.target);
-                    var $dropdown = $($event.target).next();
-                    if ($button.offset().left + $dropdown.width() > $(window).width()-15) {
-                        $dropdown.css("left", ($(window).width() - $button.offset().left - $dropdown.width() - 15) + "px");
-                    } else {
-                        $dropdown.css("left", "0");
-                    }   
-                }
+					var $button = $(event.target);
+					var $dropdown = $($event.target).next();
+					if ($button.offset().left + $dropdown.width() > $(window).width()-15) {
+						$dropdown.css("left", ($(window).width() - $button.offset().left - $dropdown.width() - 15) + "px");
+					} else {
+						$dropdown.css("left", "0");
+					}   
+				}
 			}]
 		}
 	};
 	directives.dropdownDirective.$inject = [];
 
-    return directives;
+	return directives;
 });

@@ -1,12 +1,12 @@
 {
-  "name": "qlik-lars",
-  "description": "Less, Angular, Require, Sense Template",
-  "version": "0.0.1",
-  "dependencies": {
-    "grunt": "*",
-    "grunt-angular-templates": "*",
-    "grunt-contrib-less": "*",
-    "grunt-contrib-requirejs": "*",
-    "grunt-contrib-watch": "*"
-  }
+	"name": "qlik-lars",
+	"description": "Less, Angular, Require, Sense Template",
+	"version": "0.0.1",
+	"dependencies": {
+		"grunt": "*",
+		"grunt-angular-templates": "*",
+		"grunt-contrib-less": "*",
+		"grunt-contrib-requirejs": "*",
+		"grunt-contrib-watch": "*"
+	}
 }

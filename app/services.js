@@ -1,18 +1,18 @@
 define([], function() { 
-    
-    var services = {};
+	
+	var services = {};
 
-    services.qlikAppService = function($q) {
-        //opens Qlik Sense app with appId and config set in main.js
+	services.qlikAppService = function($q) {
+		//opens Qlik Sense app with appId and config set in main.js
 		var app = qlik.openApp(appId, config);
-        this.app = app;
+		this.app = app;
 
-        /*
-        * mimicks qlik sense app api createCube() 
-        * adds functionality to destroy session object on scope destroy 
-        * add any other custom behavior desired to be applied to every hypercube
-        */
-        this.createCube = function(params, callback) {
+		/*
+		* mimicks qlik sense app api createCube() 
+		* adds functionality to destroy session object on scope destroy 
+		* add any other custom behavior desired to be applied to every hypercube
+		*/
+		this.createCube = function(params, callback) {
 			var deferred = $q.defer();
 			app.createCube({
 				qStateName: params.qStateName,
@@ -44,7 +44,7 @@ define([], function() {
 			return deferred.promise;
 		}
 	};
-    services.qlikAppService.$inject = ['$q'];
+	services.qlikAppService.$inject = ['$q'];
 
-    return services;
+	return services;
 });
