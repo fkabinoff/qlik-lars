@@ -7,7 +7,7 @@ Live demo - http://webapps.qlik.com/qlik-lars-demo/index.html
 ## Features
 * UI Bootstrap
 * A few useful directives, including a search and a filter dropdown, with more planned to be added.
-* createCube method that mimicks app api createCube method, but destroys the session object when it's scope is destroyed
+* create methods that mimick app api create methods, but destroy session objects when scope is destroyed
 * Gruntfile for build and watch processes, which generates Angular.js template-cache file, runs RequireJS optimizer, and compiles Less.
 
 ## Prerequisities
