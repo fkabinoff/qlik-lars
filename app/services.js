@@ -8,40 +8,57 @@ define([], function() {
 		this.app = app;
 
 		/*
-		* mimicks qlik sense app api createCube() 
-		* adds functionality to destroy session object on scope destroy 
-		* add any other custom behavior desired to be applied to every hypercube
+		* the following methods add functionality to app api methods to destroy session object on scope destroy 
 		*/
-		this.createCube = function(params, callback) {
+		this.createCube = function(def, callback, scope) {
 			var deferred = $q.defer();
-			app.createCube({
-				qStateName: params.qStateName,
-				qDimensions: params.qDimensions,
-				qMeasures: params.qMeasures,
-				qInterColumnSortOrder: params.qInterColumnSortOrder,
-				qSuppressZero: params.qSuppressZero,
-				qSuppressMissing: params.qSuppressMissing,
-				qInitialDataFetch: params.qInitialDataFetch,
-				qMode: params.qMode,
-				qNoOfLeftDims: params.qNoOfLeftDims,
-				qAlwaysFullyExpanded: params.qAlwaysFullyExpanded,
-				qMaxStackedCells: params.qMaxStackedCells,
-				qPopulateMissing: params.qPopulateMissing,
-				qShowTotalsAbove: params.qShowTotalsAbove,
-				qIndentMode: params.qIndentMode,
-				qCalcCond: params.qCalcCond,
-				qSortbyYValue: params.qSortbyYValue
-			}, function(reply) {
-				callback(reply);
-			}).then(function(model) {
+			app.createCube(def, function(reply){callback(reply)}).then(function(model) {
 				deferred.resolve(model);
-				if(params.scope) {
-					params.scope.$on('$destroy', function() {
+				if(scope) {
+					scope.$on('$destroy', function() {
 						app.destroySessionObject(model.id);
 					});
 				}
 			});
 			return deferred.promise;
+		}
+
+		this.createGenericObject = function(def, callback, scope) {
+			var deferred = $q.defer();
+			app.createGenericObject(def, function(reply){callback(reply)}).then(function(model) {
+				deferred.resolve(model);
+				if(scope) {
+					scope.$on('$destroy', function() {
+						app.destroySessionObject(model.id);
+					});
+				}
+			});
+			return deferred.promise;
+		}
+
+		this.createList = function(def, callback, scope) {
+			var deferred = $q.defer();
+			app.createList(def, function(reply){callback(reply)}).then(function(model) {
+				deferred.resolve(model);
+				if(scope) {
+					scope.$on('$destroy', function() {
+						app.destroySessionObject(model.id);
+					});
+				}
+			});
+			return deferred.promise;
+		}
+
+		this.createTable = function(dimensions, measures, options, scope) {
+			var deferred = $q.defer();
+			app.createTable(dimensions, measures, options).then(function(model) {
+				deferred.resolve(model);
+				if(scope) {
+					scope.$on('$destroy', function() {
+						app.destroySessionObject(model.id);
+					});
+				}
+			});
 		}
 	};
 	services.qlikAppService.$inject = ['$q'];
