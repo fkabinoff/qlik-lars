@@ -67,6 +67,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('build', ['ngtemplates', 'less', 'requirejs']);
+	//grunt.registerTask('build', ['ngtemplates', 'less', 'requirejs']);
+	grunt.registerTask('build', ['less', 'requirejs']);
 
 };

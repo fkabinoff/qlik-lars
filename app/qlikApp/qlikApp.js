@@ -1,8 +1,8 @@
-define([], function() { 
-	
-	var services = {};
+define([], function() {
 
-	services.qlikAppService = function($q) {
+    var module = angular.module('qlikApp', []);
+
+	var qlikApp = function($q) {
 		//opens Qlik Sense app with appId and config set in main.js
 		var app = qlik.openApp(appId, config);
 		this.app = app;
@@ -61,7 +61,9 @@ define([], function() {
 			});
 		}
 	};
-	services.qlikAppService.$inject = ['$q'];
+	qlikApp.$inject = ['$q'];
 
-	return services;
+	module.service('qlikApp', qlikApp); 
+
+	return module;
 });
