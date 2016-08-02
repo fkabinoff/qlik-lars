@@ -5,7 +5,7 @@ define(['app/qlikApp/qlikApp'], function() {
 	var search = function() {
 		return {
 			restrict: "E",
-			template: "<div class='search-directive'><input class='search-directive-input form-control' type='text' placeholder='Search' ng-model='selected' uib-typeahead='result.label for result in getResults($viewValue)' typeahead-loading='loadingResults' typeahead-on-select='select($item)'><i class='glyphicon glyphicon-refresh' ng-show='loadingResults'></i></div>",
+			templateUrl: "app/search/search.html",
 			scope: {
 				"fields": "="
 			},

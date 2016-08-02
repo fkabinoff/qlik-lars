@@ -8,7 +8,7 @@ define(['app/qlikApp/qlikApp'], function() {
 	var senseObject = function(qlikApp) {
 		return {
 			restrict: "E",
-			template:"<div class='sense-object'></div>",
+			templateUrl: "app/senseObject/senseObject.html",
 			controller: ['$scope', '$attrs', '$element', 'qlikApp', function($scope, $attrs, $element, qlikApp) {
 				var height = $attrs.height ? $attrs.height + "px" : "300px";
 				$element.find("div").css("height", height);

@@ -5,7 +5,7 @@ define(['app/qlikApp/qlikApp.js'], function() {
 	var dropdown = function() {
 		return {
 			restrict: "E",
-			template: "<div class='dropdown-directive btn-group' uib-dropdown is-open='status.isopen'><button type='button' class='btn btn-primary dropdown-toggle' uib-dropdown-toggle ng-disabled='disabled' ng-click='edgeDetection($event)'> {{selectedValue}} <span class='caret'></span></button><ul vs-repeat vs-excess='10' class='dropdown-menu' uib-dropdown-menu role='menu' ng-style='styles'><li ng-class='row.qState' ng-repeat='row in rows' ng-click='selectRow(row)' class=''><a href='javascript:void(0);'>{{row.qText}}</a></li></ul></div>",
+			templateUrl: "app/dropdown/dropdown.html",
 			scope:{
 				field: "@",
 				toggle: "="
