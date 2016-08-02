@@ -1,11 +1,6 @@
 var requireApp = require.config({
 	context: 'appRequire',
-	baseUrl: './',
-	map: {
-		'*': {
-			less: 'node_modules/requirejs-style-plugins/less'
-		}
-	}
+	baseUrl: './'
 });
 
 requireApp(['app/templates', 'app/examples/examples'], function(templates) { 
