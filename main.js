@@ -19,14 +19,20 @@ require.config({
 	'baseUrl': (config.isSecure ? "https://" : "http://" ) + config.host + (config.port ? ":" + config.port : "" ) + config.prefix + "resources"
 });
 
-require( ["js/qlik", "app-build.js"], function (qlik, app){
-	
-	qlik.setOnError( function (error){
-		alert(error.message);
+var myRequire = require.config({
+	'context': 'myRequire',
+	'baseUrl': './'
+});
+
+require( ["js/qlik"], function (qlik){
+	myRequire(["app/app"], function() {
+
+		qlik.setOnError( function (error){
+			alert(error.message);
+		});
+		
+		window.qlik = qlik;
+
+		angular.bootstrap(document, ["app", "qlik-angular"]);
 	});
-	
-	window.qlik = qlik;
-
-	angular.bootstrap(document, ["app", "qlik-angular"]);
-
 });
