@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		ngtemplates: {
 			app: {
-				src: 'app/views/*.html',
+				src: 'app/*/*.html',
 				dest: 'app/templates.js',
 				options: {
 					bootstrap:  function(module, script) {
@@ -14,11 +14,8 @@ module.exports = function(grunt) {
 		},
 		less: {
 			development: {
-				options: {
-					
-				},
 				files: {
-					'css/main.css': 'css/less/main.less'
+					'css/main.css': ['css/less/main.less', 'app/*/*.less']
 				}
 			}
 		},
@@ -67,7 +64,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	//grunt.registerTask('build', ['ngtemplates', 'less', 'requirejs']);
-	grunt.registerTask('build', ['less', 'requirejs']);
+	grunt.registerTask('build', ['ngtemplates', 'less', 'requirejs']);
+	//grunt.registerTask('build', ['less', 'requirejs']);
 
 };

@@ -1,4 +1,4 @@
-define(['app/qlikApp/qlikApp.js'], function() {
+define(['app/qlikApp/qlikApp'], function() {
 
     var module = angular.module('senseObject', ['qlikApp']);
 
