@@ -8,9 +8,9 @@ var requireApp = require.config({
 	}
 });
 
-requireApp(['app/templates', 'app/home/home'], function(templates) { 
+requireApp(['app/templates', 'app/examples/examples'], function(templates) { 
 	
-	var app = angular.module('app', ['ngRoute', 'ui.bootstrap', 'home']);
+	var app = angular.module('app', ['ngRoute', 'ui.bootstrap', 'examples']);
 	app.run(templates);
 
 });
