@@ -34,7 +34,7 @@ define(['app/qlikApp/qlikApp.js'], function() {
 					}]
 				}, function(reply) {
 					$scope.rows = _.flatten(reply.qListObject.qDataPages[0].qMatrix).filter(function(row) { return row.qText !== "Toronto Blue Jays"; });
-				});
+				}, $scope);
 
 				// handles selections, if 'toggle' attribute set to true, then toggles selections
 				$scope.selectRow=function(row){
