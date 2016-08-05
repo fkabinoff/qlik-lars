@@ -15,7 +15,7 @@ define(['app/qlikApp/qlikApp.js'], function() {
 				$scope.styles = {width: $attrs.width ? $attrs.width + "px" : "200px"}; // Default to 200px width for dropdown if 'width' attribute not set
 
 				// creates list object
-				qlikApp.app.createList({
+				qlikApp.createList({
 					"qDef": {
 						"qFieldDefs": ["[" + $scope.field + "]"],
 						qSortCriterias: [{
@@ -34,13 +34,6 @@ define(['app/qlikApp/qlikApp.js'], function() {
 					}]
 				}, function(reply) {
 					$scope.rows = _.flatten(reply.qListObject.qDataPages[0].qMatrix).filter(function(row) { return row.qText !== "Toronto Blue Jays"; });
-				}).then(function(model) {
-					$scope.model = model;
-				});
-
-				//destroys list object on scope change
-				$scope.$on('$destroy', function() {
-					qlikApp.app.destroySessionObject($scope.model.id);
 				});
 
 				// handles selections, if 'toggle' attribute set to true, then toggles selections
