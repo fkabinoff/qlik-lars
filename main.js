@@ -31,5 +31,5 @@ require( ["js/qlik"], function (qlik){
 	
 	window.qlik = qlik;
 	
-	requireApp(["app-build"]);
+	require({context: 'requireApp'}, ["app-build"]);
 });

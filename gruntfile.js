@@ -36,21 +36,21 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			templates: {
-				files: ['app/views/*.html'],
+				files: ['app/*/*.html'],
 				tasks: ['ngtemplates'],
 				options: {
 					livereload: true
 				}
 			},
 			css: {
-				files: ['css/less/*.less'],
+				files: ['css/less/*.less', 'app/*/*.less'],
 				tasks: ['less'],
 				options: {
 					livereload: true
 				}
 			},
 			scripts: {
-				files: ['app/*.js'],
+				files: ['app/*.js', 'app/*/*.js'],
 				tasks: ['requirejs'],
 				options: {
 					livereload: true
@@ -65,6 +65,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('build', ['ngtemplates', 'less', 'requirejs']);
-	//grunt.registerTask('build', ['less', 'requirejs']);
 
 };
