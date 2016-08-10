@@ -21,7 +21,16 @@ require.config({
 
 var requireApp = require.config({
 	'context': 'requireApp',
-	'baseUrl': './'
+	'baseUrl': './',
+	'paths': {
+		'uirouter': 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min',
+		'uibootstrap': 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min'
+	},
+	'shim': {
+		'app-build': {
+			'deps': ['uirouter', 'uibootstrap']
+		}
+	}
 });
 
 require( ["js/qlik"], function (qlik){
