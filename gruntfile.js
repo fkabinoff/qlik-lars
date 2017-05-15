@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		ngtemplates: {
 			app: {
-				src: 'app/*/*.html',
+				src: ['app/*.html', 'app/*/*.html'],
 				dest: 'app/templates.js',
 				options: {
 					bootstrap:  function(module, script) {
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 			compile: {
 				options: {
 					baseUrl: "./",
-					include: ["app/app.js"],
+					include: ["app/app.module.js"],
 					out: "app-build.js",
 					generateSourceMaps: true,
 					preserveLicenseComments: false,
