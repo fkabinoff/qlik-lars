@@ -1,8 +1,8 @@
 <div class='dropdown-directive btn-group' uib-dropdown is-open='status.isopen'>
-  <button type='button' class='btn btn-primary dropdown-toggle' uib-dropdown-toggle ng-disabled='disabled' ng-click='edgeDetection($event)'>
-    {{selectedValue}} <span class='caret'></span>
+  <button type='button' class='btn btn-primary dropdown-toggle' uib-dropdown-toggle ng-disabled='disabled' ng-click='$ctrl.edgeDetection($event)'>
+    {{$ctrl.selectedValue}} <span class='caret'></span>
   </button>
-  <ul vs-repeat vs-excess='10' class='dropdown-menu' uib-dropdown-menu role='menu' ng-style='styles'>
-    <li ng-class='row.qState' ng-repeat='row in rows' ng-click='selectRow(row)' class=''><a href='javascript:void(0);'>{{row.qText}}</a></li>
+  <ul vs-repeat vs-excess='10' class='dropdown-menu' uib-dropdown-menu role='menu' ng-style='$ctrl.styles'>
+    <li ng-class='row.qState' ng-repeat='row in $ctrl.rows' ng-click='$ctrl.selectRow(row)' class=''><a href='javascript:void(0);'>{{row.qText}}</a></li>
   </ul>
 </div>

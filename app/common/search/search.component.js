@@ -5,16 +5,17 @@ define(['text!app/common/search/search.component.html'], function(template) {
       "fields": "="
     },
     controller: ['$scope', '$attrs', '$timeout', '$q', 'qlikApp', function($scope, $attrs, $timeout, $q, qlikApp) {
-      $scope.context = $attrs.context ? $attrs.context : 'LockedFieldsOnly';  //Default to 'LockedFieldsOnly' if 'context' attribute not set
+      var vm = this;
+      var context = $attrs.context ? $attrs.context : 'LockedFieldsOnly';  //Default to 'LockedFieldsOnly' if 'context' attribute not set
       // get results of search, called from async typeahead
-      $scope.getResults = function(searchString) {
+      vm.getResults = function(searchString) {
         $timeout.cancel(debounce); //need to debounce, or causes infinite loop with Qlik Engine
         var deferred = $q.defer();
         var debounce = $timeout(function() { 
           qlikApp.app.searchResults(  
             [searchString],  //search string
             {qOffset: 0, qCount: 100}, //how many results to return, and offset  
-            {qSearchFields: $scope.fields, qContext: $scope.context}, //options object  
+            {qSearchFields: vm.fields, qContext: context}, //options object  
           function(reply) {
             var result = [];
             angular.forEach(reply.qResult.qSearchGroupArray, function(searchGroup) {
@@ -28,9 +29,9 @@ define(['text!app/common/search/search.component.html'], function(template) {
         return deferred.promise;  
       }
       // handles selections
-      $scope.select = function(item) {
+      vm.select = function(item) {
         qlikApp.app.field(item.field).toggleSelect(item.label, true);
-        $scope.selected = "";
+        vm.selected = "";
       }
     }]
   }
