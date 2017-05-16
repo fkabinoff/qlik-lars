@@ -4,7 +4,6 @@
 	"version": "0.0.1",
 	"dependencies": {
 		"grunt": "*",
-		"grunt-angular-templates": "*",
 		"grunt-contrib-less": "*",
 		"grunt-contrib-requirejs": "*",
 		"grunt-contrib-watch": "*"
