@@ -1,0 +1,31 @@
+<div id="app-view" class="container">
+  
+  <!-- Search directive example -->
+  <div style="margin-top: 40px;">
+    <search fields="['Cases Open/Closed', 'Priority', 'Case Owner', 'Case Record Type', 'Case Owner Group']" context="CurrentSelections"></search>
+  </div>
+  
+  <!-- Dropdown filter examples -->
+  <div style="margin-top: 40px">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Filters</h3>
+      </div>
+      <div class="panel-body">
+        <dropdown field="Cases Open/Closed" toggle="true" width="300"></dropdown>
+        <dropdown field="Priority" toggle="true" width="300"></dropdown>
+        <dropdown field="Case Owner" name="IT Resources" toggle="true" width="300"></dropdown>
+        <dropdown field="Case Record Type" name="Request Type" toggle="true" width="300"></dropdown>
+        <dropdown field="Case Owner Group" name="Department" toggle="true" width="300"></dropdown>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sense object example -->
+  <div style="margin-top: 40px">
+    <div class="well">
+      <sense-object id="a5e0f12c-38f5-4da9-8f3f-0e4566b28398" height="300"></sense-object>
+    </div>
+  </div>
+
+</div>
